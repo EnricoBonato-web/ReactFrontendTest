@@ -1,6 +1,7 @@
 {
-  "name": "react-complete-guide",
+  "name": "react-test-frontend",
   "version": "0.1.0",
+  "homepage": "https://EnricoBonato-web.github.io/ReactFrontendTest",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.2",
@@ -15,6 +16,8 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -40,6 +43,7 @@
   },
   "devDependencies": {
     "@types/react": "^18.0.14",
-    "@types/react-dom": "^18.0.5"
+    "@types/react-dom": "^18.0.5",
+    "gh-pages": "^4.0.0"
   }
 }
