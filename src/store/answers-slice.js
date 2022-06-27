@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-
 const answersSlice = createSlice({
   name: "answers",
   initialState: {
@@ -8,12 +7,11 @@ const answersSlice = createSlice({
   },
   reducers: {
     addEmptyAnswer(state, action) {
-      state.answers.push([0]);
+      state.answers.push(0);
       state.numberOfQuestions++;
     },
     addAnswer(state, action) {
-      const [questionNumber, value] = action.payload;
-      state[questionNumber] = value;
+      state.answers[action.payload.questionNumber - 1] = action.payload.value;
     },
   },
 });

@@ -1,12 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
+import { useDispatch } from "react-redux";
+import store from "../../../store";
+import answersSlice from "../../../store/answers-slice";
 import classes from "./QuestionItemForm.module.css";
 const QuestionItemForm = (props: any) => {
-  const [questionValue, setRadioValue] = useState();
-  const radioChange = (event: any) => {
-    console.log(event.target.value);
+  const dispatch = useDispatch();
+
+  const onChange = (event: any) => {
+    dispatch(
+      answersSlice.actions.addAnswer({
+        questionNumber: +props.id.charAt(props.id.length - 1),
+        value: +event.target.value,
+      })
+    );
+    console.log(store.getState().answers.answers);
   };
   return (
-    <ul className={classes.answer} onChange={props.onChange}>
+    <ul className={classes.answer} onChange={onChange}>
       <li>
         <input type="radio" name={props.id} value="1" />
         <label>completely untrue </label>

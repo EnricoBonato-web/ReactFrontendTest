@@ -1,7 +1,6 @@
 import React from "react";
 import { Fragment } from "react";
 import classes from "./header.module.css";
-import HeaderCartButton from "./SubmitButton"
 
 const Header = () => {
   return (

@@ -4,21 +4,21 @@ import Card from "../UI/Card";
 import QuestionItem from "../../types/QuestionItem";
 import classes from "./AvailableQuestions.module.css";
 import HeaderCartButton from "../Layout/SubmitButton";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { uiActions } from "../../store/ui-slice";
+import answersSlice from "../../store/answers-slice";
 const AvailableQuestions = (props: { onShowCart: () => {} }) => {
   const dispatch = useDispatch();
   const [questions, setQuestions] = useState<QuestionItem[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [httpError, setHttpError] = useState();
-  const changeHandler = (event: any, questionNumber: number, value: number) => {
-    console.log(event.target.value);
-  };
-  const numberOfQuestions = useSelector((state: any) => state.answers.answers);
-  console.log(numberOfQuestions);
-  const toggleCartHandler = () => {
+  const [submitted, setsubmitted] = useState(false);
+  const changeHandler = (value: number, questionNumber: number) => {
+    setsubmitted(true);
+    console.log("clicked");
     dispatch(uiActions.toggle());
   };
+
   useEffect(() => {
     const fetchedQuestions = async () => {
       setIsLoading(true);
@@ -31,6 +31,8 @@ const AvailableQuestions = (props: { onShowCart: () => {} }) => {
       const loadedAnswers: number[] = [];
 
       for (const key in responseData) {
+        dispatch(answersSlice.actions.addEmptyAnswer({}));
+
         loadedQuestions.push({
           id: key,
           text: responseData[key],
@@ -45,7 +47,7 @@ const AvailableQuestions = (props: { onShowCart: () => {} }) => {
       setIsLoading(false);
       setHttpError(error.message);
     });
-  }, []);
+  }, [dispatch]);
   if (httpError) {
     return (
       <section className={classes.QuestionsError}>
@@ -65,13 +67,13 @@ const AvailableQuestions = (props: { onShowCart: () => {} }) => {
       key={question.id}
       id={question.id}
       text={question.text}
-      onchange={changeHandler}
+      submitted={submitted}
     />
   ));
   return (
     <Card>
       <ul className="answer">{questionList}</ul>
-      <HeaderCartButton onClick={toggleCartHandler} />
+      <HeaderCartButton onClick={changeHandler} />
     </Card>
   );
 };

@@ -1,22 +1,24 @@
-import Header from "./components/Layout/Header";
-import React, { Fragment, useState } from "react";
-import Cart from "./components/Cart/Cart";
+import { Fragment } from "react";
+import { useSelector } from "react-redux";
+
 import AvailableQuestions from "./components/Questions/AvailableQuestions";
+import Notification from "./components/UI/Notification";
+import Header from "./components/Layout/Header";
+
 function App() {
-  console.clear();
-  const [cartIsShown, setCartIsShown] = useState(false);
-  const showCartHandler = () => {
-    setCartIsShown(true);
-  };
-  const hideCartHandler = () => {
-    setCartIsShown(false);
-  };
+  const notification = useSelector((state) => state.ui.notification);
+
   return (
     <Fragment>
-      {cartIsShown && <Cart onClose={hideCartHandler} />}
+      {notification && (
+        <Notification
+          status={notification.status}
+          title={notification.title}
+          message={notification.message}
+        />
+      )}
       <Header />
-
-      <AvailableQuestions onShowCart={showCartHandler} />
+      <AvailableQuestions />
     </Fragment>
   );
 }
