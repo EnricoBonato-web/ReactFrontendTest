@@ -5,7 +5,7 @@ import classes from "./Submit.module.css";
 import AnswerItem from "./AnswerItem";
 import { uiActions } from "../../store/ui-slice";
 import Card from "../UI/Card";
-const Submit = (props) => {
+const Submit = () => {
   const answers = useSelector((state) => state.answers.answers);
   const dispatch = useDispatch();
 

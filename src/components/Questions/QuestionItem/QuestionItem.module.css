@@ -8,3 +8,9 @@
 .error p {
   color: rgb(211, 58, 58);
 }
+.question {
+  font-size: 20px;
+  margin-bottom: 30px;
+  text-align: center;
+  width: 100%;
+}

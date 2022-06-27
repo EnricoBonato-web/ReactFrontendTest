@@ -16,10 +16,8 @@ const QuestionItems = (props: {
   } ${props.id}`;
   return (
     <div className={style}>
-      <p className="question">{props.text}</p>
-      <div>
-        <QuestionItemForm id={props.id} />
-      </div>
+      <p className={classes.question}>{props.text}</p>
+      <QuestionItemForm id={props.id} />
     </div>
   );
 };

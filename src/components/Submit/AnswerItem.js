@@ -1,4 +1,4 @@
-import classes from './AnswerItem.module.css'
+import classes from "./AnswerItem.module.css";
 const AnswerItem = (props) => {
   const { id, value } = props;
 
