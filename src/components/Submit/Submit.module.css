@@ -11,15 +11,6 @@
   background-color: #000;
   background-color: rgba(0, 0, 0, 0.4);
 }
-.modalcontent {
-  background-color: #fefefe;
-  z-index: 200;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 90%;
- 
-}
 
 .close {
   color: #aaa;

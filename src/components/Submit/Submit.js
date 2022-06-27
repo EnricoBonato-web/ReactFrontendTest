@@ -14,7 +14,7 @@ const Submit = (props) => {
   };
   return (
     <div id="myModalError" className={classes.modal} onClick={closeModal}>
-      <Card class={classes.modalcontent}>
+      <Card class="modal-content">
         <h2>Your Answers:</h2>
         <ul>
           {answers.map((answer) => {

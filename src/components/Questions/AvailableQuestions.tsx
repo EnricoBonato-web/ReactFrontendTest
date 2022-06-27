@@ -3,7 +3,7 @@ import QuestionItems from "./QuestionItem/QuestionItem";
 import Card from "../UI/Card";
 import QuestionItem from "../../types/QuestionItem";
 import classes from "./AvailableQuestions.module.css";
-import HeaderCartButton from "../Layout/SubmitButton";
+import SubmitButton from "../Layout/SubmitButton";
 import { useDispatch, useSelector } from "react-redux";
 import { uiActions } from "../../store/ui-slice";
 import answersSlice from "../../store/answers-slice";
@@ -89,9 +89,9 @@ const AvailableQuestions = () => {
     />
   ));
   return (
-    <Card>
+    <Card class="survey">
       <ul className="answer">{questionList}</ul>
-      <HeaderCartButton onClick={changeHandler} />
+      <SubmitButton onClick={changeHandler} />
     </Card>
   );
 };
