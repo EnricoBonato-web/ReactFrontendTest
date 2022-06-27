@@ -18,7 +18,6 @@ const Submit = () => {
         <h2>Your Answers:</h2>
         <ul>
           {answers.map((answer) => {
-            console.log(answer.questionId);
             return (
               <AnswerItem
                 key={answer.questionId}

@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/ReactFrontendTest/static/css/main.871c13aa.chunk.css",
-    "main.js": "/ReactFrontendTest/static/js/main.37e351c8.chunk.js",
-    "main.js.map": "/ReactFrontendTest/static/js/main.37e351c8.chunk.js.map",
+    "main.js": "/ReactFrontendTest/static/js/main.501cca9e.chunk.js",
+    "main.js.map": "/ReactFrontendTest/static/js/main.501cca9e.chunk.js.map",
     "runtime-main.js": "/ReactFrontendTest/static/js/runtime-main.831b1b20.js",
     "runtime-main.js.map": "/ReactFrontendTest/static/js/runtime-main.831b1b20.js.map",
-    "static/js/2.0e4de8c3.chunk.js": "/ReactFrontendTest/static/js/2.0e4de8c3.chunk.js",
-    "static/js/2.0e4de8c3.chunk.js.map": "/ReactFrontendTest/static/js/2.0e4de8c3.chunk.js.map",
+    "static/js/2.5270b10e.chunk.js": "/ReactFrontendTest/static/js/2.5270b10e.chunk.js",
+    "static/js/2.5270b10e.chunk.js.map": "/ReactFrontendTest/static/js/2.5270b10e.chunk.js.map",
     "index.html": "/ReactFrontendTest/index.html",
     "static/css/main.871c13aa.chunk.css.map": "/ReactFrontendTest/static/css/main.871c13aa.chunk.css.map",
-    "static/js/2.0e4de8c3.chunk.js.LICENSE.txt": "/ReactFrontendTest/static/js/2.0e4de8c3.chunk.js.LICENSE.txt"
+    "static/js/2.5270b10e.chunk.js.LICENSE.txt": "/ReactFrontendTest/static/js/2.5270b10e.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.831b1b20.js",
-    "static/js/2.0e4de8c3.chunk.js",
+    "static/js/2.5270b10e.chunk.js",
     "static/css/main.871c13aa.chunk.css",
-    "static/js/main.37e351c8.chunk.js"
+    "static/js/main.501cca9e.chunk.js"
   ]
 }

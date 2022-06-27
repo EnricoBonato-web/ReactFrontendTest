@@ -13,7 +13,6 @@ const QuestionItemForm = (props: any) => {
         value: +event.target.value,
       })
     );
-    console.log(store.getState().answers.answers);
   };
   return (
     <ul className={classes.answer} onChange={onChange}>
