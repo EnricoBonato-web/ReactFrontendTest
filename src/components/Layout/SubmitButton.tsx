@@ -3,14 +3,14 @@ import { useSelector } from "react-redux";
 
 import classes from "./SubmitButton.module.css";
 
-const CartButton = (props: any) => {
+const SubmitButton = (props: any) => {
   const numberOfQuestions = useSelector(
     (state: any) => state.answers.numberOfQuestions
   );
   const numberOfAnswer = useSelector((state: any) => state.answers.answers);
   let count = 0;
-  numberOfAnswer.forEach((answer: any) => {
-    if (answer !== 0) count++;
+  numberOfAnswer.forEach((answer: {questionId:string,value:number}) => {
+    if (answer.value !== 0) count++;
   });
   return (
     <button className={classes.button} onClick={props.onClick}>
@@ -20,4 +20,4 @@ const CartButton = (props: any) => {
   );
 };
 
-export default CartButton;
+export default SubmitButton;

@@ -10,7 +10,7 @@ const QuestionItems = (props: {
 }) => {
   const answered = useSelector((state: any) => state.answers.answers);
   const style = `${
-    answered[+props.id.charAt(props.id.length - 1) - 1] === 0 &&
+    answered[+props.id.charAt(props.id.length - 1) - 1].value === 0 &&
     props.submitted &&
     classes.error
   } ${props.id}`;
@@ -18,7 +18,7 @@ const QuestionItems = (props: {
     <div className={style}>
       <p className="question">{props.text}</p>
       <div>
-        <QuestionItemForm id={props.id}  />
+        <QuestionItemForm id={props.id} />
       </div>
     </div>
   );

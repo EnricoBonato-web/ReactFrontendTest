@@ -7,11 +7,14 @@ const answersSlice = createSlice({
   },
   reducers: {
     addEmptyAnswer(state, action) {
-      state.answers.push(0);
+      state.answers.push({
+        questionId: action.payload.questionId,
+        value: action.payload.value,
+      });
       state.numberOfQuestions++;
     },
     addAnswer(state, action) {
-      state.answers[action.payload.questionNumber - 1] = action.payload.value;
+      state.answers[action.payload.questionNumber-1].value = action.payload.value;
     },
   },
 });

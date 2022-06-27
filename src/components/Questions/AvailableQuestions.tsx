@@ -13,7 +13,7 @@ const AvailableQuestions = (props: { onShowCart: () => {} }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [httpError, setHttpError] = useState();
   const [submitted, setsubmitted] = useState(false);
-  const changeHandler = (value: number, questionNumber: number) => {
+  const changeHandler = () => {
     setsubmitted(true);
     dispatch(
       uiActions.showNotification({
@@ -36,7 +36,9 @@ const AvailableQuestions = (props: { onShowCart: () => {} }) => {
       const loadedAnswers: number[] = [];
 
       for (const key in responseData) {
-        dispatch(answersSlice.actions.addEmptyAnswer({}));
+        dispatch(
+          answersSlice.actions.addEmptyAnswer({ questionId: key, value: 0 })
+        );
 
         loadedQuestions.push({
           id: key,
@@ -44,6 +46,7 @@ const AvailableQuestions = (props: { onShowCart: () => {} }) => {
         });
         loadedAnswers.push(0);
       }
+
       setQuestions(loadedQuestions);
       setIsLoading(false);
     };
