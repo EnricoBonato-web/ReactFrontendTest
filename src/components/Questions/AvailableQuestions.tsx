@@ -4,25 +4,16 @@ import Card from "../UI/Card";
 import QuestionItem from "../../types/QuestionItem";
 import classes from "./AvailableQuestions.module.css";
 import HeaderCartButton from "../Layout/SubmitButton";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { uiActions } from "../../store/ui-slice";
 import answersSlice from "../../store/answers-slice";
-const AvailableQuestions = (props: { onShowCart: () => {} }) => {
+const AvailableQuestions = () => {
   const dispatch = useDispatch();
   const [questions, setQuestions] = useState<QuestionItem[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [httpError, setHttpError] = useState();
   const [submitted, setsubmitted] = useState(false);
-  const changeHandler = () => {
-    setsubmitted(true);
-    dispatch(
-      uiActions.showNotification({
-        show: true,
-        title: "Error",
-        message: "Please complete all the questions..",
-      })
-    );
-  };
+  const answersSelector = useSelector((state: any) => state.answers.answers);
 
   useEffect(() => {
     const fetchedQuestions = async () => {
@@ -70,6 +61,25 @@ const AvailableQuestions = (props: { onShowCart: () => {} }) => {
       </section>
     );
   }
+  const allChecked = answersSelector.reduce(
+    (partialSum: number, a: { value: number }) => partialSum * a.value,
+    1
+  );
+  const changeHandler = () => {
+    setsubmitted(true);
+
+    if (allChecked === 0) {
+      dispatch(
+        uiActions.showNotification({
+          show: true,
+          title: "Error",
+          message: "Please complete all the questions..",
+        })
+      );
+    } else {
+      dispatch(uiActions.toggle());
+    }
+  };
   const questionList = questions.map((question) => (
     <QuestionItems
       key={question.id}
