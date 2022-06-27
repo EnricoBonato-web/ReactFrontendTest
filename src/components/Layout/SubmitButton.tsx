@@ -12,8 +12,9 @@ const SubmitButton = (props: any) => {
   numberOfAnswer.forEach((answer: {questionId:string,value:number}) => {
     if (answer.value !== 0) count++;
   });
+  const style=`${classes.button} ${classes.bump}`
   return (
-    <button className={classes.button} onClick={props.onClick}>
+    <button className={style} onClick={props.onClick}>
       <span>Submit</span>
       <span className={classes.badge}>{count + "/" + numberOfQuestions}</span>
     </button>
