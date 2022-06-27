@@ -6,13 +6,12 @@ import Notification from "./components/UI/Notification";
 import Header from "./components/Layout/Header";
 
 function App() {
-  const notification = useSelector((state) => state.ui.notification.show);
-console.log(notification);
+  const notification = useSelector((state) => state.ui.notification);
+  console.log(notification);
   return (
     <Fragment>
-      {notification && (
+      {notification.show && (
         <Notification
-          status={notification.status}
           title={notification.title}
           message={notification.message}
         />
