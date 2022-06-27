@@ -7,7 +7,6 @@ const QuestionItems = (props: {
   text: string;
   onchange: Function;
 }) => {
-  console.log("test");
   return (
     <div className={classes.error + " " + props.id}>
       <p className="question">{props.text}</p>

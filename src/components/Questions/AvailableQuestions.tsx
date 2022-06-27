@@ -3,20 +3,21 @@ import QuestionItems from "./QuestionItem/QuestionItem";
 import Card from "../UI/Card";
 import QuestionItem from "../../types/QuestionItem";
 import classes from "./AvailableQuestions.module.css";
-import HeaderCartButton from "../Layout/HeaderCartButton";
-
+import HeaderCartButton from "../Layout/SubmitButton";
+import { useDispatch, useSelector } from "react-redux";
+import { uiActions } from "../../store/ui-slice";
 const AvailableQuestions = (props: { onShowCart: () => {} }) => {
+  const dispatch = useDispatch();
   const [questions, setQuestions] = useState<QuestionItem[]>([]);
-  const [answers, setAnswers] = useState<number[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [httpError, setHttpError] = useState();
   const changeHandler = (event: any, questionNumber: number, value: number) => {
     console.log(event.target.value);
-    setAnswers((prevState) => {
-      const newAnswer = [...prevState];
-      newAnswer[questionNumber] = value;
-      return newAnswer;
-    });
+  };
+  const numberOfQuestions = useSelector((state: any) => state.answers.answers);
+  console.log(numberOfQuestions);
+  const toggleCartHandler = () => {
+    dispatch(uiActions.toggle());
   };
   useEffect(() => {
     const fetchedQuestions = async () => {
@@ -37,7 +38,6 @@ const AvailableQuestions = (props: { onShowCart: () => {} }) => {
         loadedAnswers.push(0);
       }
       setQuestions(loadedQuestions);
-      setAnswers(loadedAnswers);
       setIsLoading(false);
     };
 
@@ -71,7 +71,7 @@ const AvailableQuestions = (props: { onShowCart: () => {} }) => {
   return (
     <Card>
       <ul className="answer">{questionList}</ul>
-      <HeaderCartButton onClick={props.onShowCart} />
+      <HeaderCartButton onClick={toggleCartHandler} />
     </Card>
   );
 };
