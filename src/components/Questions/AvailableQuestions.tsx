@@ -18,8 +18,8 @@ const AvailableQuestions = (props: { onShowCart: () => {} }) => {
     dispatch(
       uiActions.showNotification({
         show: true,
-        title: "error",
-        message: "please",
+        title: "Error",
+        message: "Please complete all the questions..",
       })
     );
   };

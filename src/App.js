@@ -7,7 +7,6 @@ import Header from "./components/Layout/Header";
 
 function App() {
   const notification = useSelector((state) => state.ui.notification);
-  console.log(notification);
   return (
     <Fragment>
       {notification.show && (
