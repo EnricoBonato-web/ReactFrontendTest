@@ -15,8 +15,13 @@ const AvailableQuestions = (props: { onShowCart: () => {} }) => {
   const [submitted, setsubmitted] = useState(false);
   const changeHandler = (value: number, questionNumber: number) => {
     setsubmitted(true);
-    console.log("clicked");
-    dispatch(uiActions.toggle());
+    dispatch(
+      uiActions.showNotification({
+        show: true,
+        title: "error",
+        message: "please",
+      })
+    );
   };
 
   useEffect(() => {

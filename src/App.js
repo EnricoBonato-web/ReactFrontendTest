@@ -6,8 +6,8 @@ import Notification from "./components/UI/Notification";
 import Header from "./components/Layout/Header";
 
 function App() {
-  const notification = useSelector((state) => state.ui.notification);
-
+  const notification = useSelector((state) => state.ui.notification.show);
+console.log(notification);
   return (
     <Fragment>
       {notification && (

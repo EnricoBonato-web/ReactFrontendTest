@@ -1,22 +1,30 @@
-import classes from './Notification.module.css';
-
+import classes from "./Notification.module.css";
+import React from "react";
+import { useDispatch } from "react-redux";
+import { uiActions } from "../../store/ui-slice";
 const Notification = (props) => {
-  let specialClasses = '';
+  const dispatch = useDispatch();
 
-  if (props.status === 'error') {
-    specialClasses = classes.error;
-  }
-  if (props.status === 'success') {
-    specialClasses = classes.success;
-  }
-
-  const cssClasses = `${classes.notification} ${specialClasses}`;
-
+  const cssClasses = `${classes["modal-content"]} `;
+  const closeModal = () => {
+    dispatch(
+      uiActions.showNotification({
+        show: false,
+        title: "",
+        message: "",
+      })
+    );
+  };
   return (
-    <section className={cssClasses}>
-      <h2>{props.title}</h2>
-      <p>{props.message}</p>
-    </section>
+    <div id="myModalError" className={classes.modal} onClick={closeModal}>
+      <section className={cssClasses}>
+        <span className={classes.close} onClick={closeModal}>
+          &times;
+        </span>
+        <h2>{props.title}</h2>
+        <p>{props.message}</p>
+      </section>
+    </div>
   );
 };
 
