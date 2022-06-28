@@ -1,6 +1,5 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import store from "../../../store";
 import answersSlice from "../../../store/answers-slice";
 import classes from "./QuestionItemForm.module.css";
 const QuestionItemForm = (props: any) => {
